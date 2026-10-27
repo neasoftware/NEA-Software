@@ -93,27 +93,14 @@
       display: inline-flex;
       align-items: center;
       gap: 11px;
-      font-size: 1.05rem;
-      font-weight: 800;
-      letter-spacing: -.5px;
       white-space: nowrap;
     }
 
-    .brand-icon {
-      display: grid;
-      place-items: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 13px;
-      background: var(--green);
-      color: #04130d;
-      font-size: 1.2rem;
-      font-weight: 900;
-      box-shadow: 0 0 25px rgba(16,185,129,.13);
-    }
-
-    .brand span:last-child {
-      color: var(--mint);
+    .brand-logo {
+      height: 34px;
+      width: auto;
+      object-fit: contain;
+      display: block;
     }
 
     .nav {
@@ -557,15 +544,8 @@
         gap: 10px;
       }
 
-      .brand {
-        gap: 8px;
-        font-size: .92rem;
-      }
-
-      .brand-icon {
-        width: 35px;
-        height: 35px;
-        border-radius: 11px;
+      .brand-logo {
+        height: 29px;
       }
 
       .nav {
@@ -635,13 +615,8 @@
     }
 
     @media (max-width: 390px) {
-      .brand {
-        font-size: .82rem;
-      }
-
-      .brand-icon {
-        width: 31px;
-        height: 31px;
+      .brand-logo {
+        height: 25px;
       }
 
       .nav-button {
@@ -671,9 +646,9 @@
 <body>
   <header class="header">
     <div class="header-inner">
+      <!-- LOGOTIPO EN EL ENCABEZADO -->
       <a href="#inicio" class="brand" data-screen="0" aria-label="NEA Software, inicio">
-        <span class="brand-icon">N</span>
-        <span>NEA <span>Software</span></span>
+        <img src="nea-logo.jpg" alt="NEA Software Logo" class="brand-logo">
       </a>
 
       <nav class="nav" aria-label="Navegación principal">
