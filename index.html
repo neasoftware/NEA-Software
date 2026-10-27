@@ -3,8 +3,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#06110f">
-<meta name="description" content="NEA Software — Ideas, tecnología y proyectos digitales.">
-<title>NEA Software — Ideas que se convierten en tecnología</title><style>
+<meta name="description" content="NEA Software — Proyectos digitales y tecnología.">
+<title>NEA Software — Proyectos digitales</title><style>
 :root {
   --bg: #06110f;
   --panel: #0b1d18;
@@ -35,7 +35,6 @@ body {
 }
 
 a { color: inherit; text-decoration: none; }
-button { font: inherit; }
 
 .container {
   width: min(1120px, calc(100% - 40px));
@@ -89,108 +88,50 @@ header {
 
 .nav-links {
   display: flex;
-  gap: 28px;
+  align-items: center;
+  gap: 18px;
   color: #b6cfc4;
   font-size: .9rem;
 }
 
-.nav-links a:hover { color: white; }
+.nav-links a:not(.nav-projects):hover {
+  color: white;
+}
+
+.nav-links .nav-projects {
+  padding: 9px 17px;
+  border-radius: 999px;
+  color: #03251b;
+  font-weight: 800;
+  background: linear-gradient(100deg, #6ee7b7, #34d399, #5eead4);
+  box-shadow: 0 5px 22px rgba(16,185,129,.18);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.nav-links .nav-projects:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(16,185,129,.3);
+}
 
 .hero {
-  min-height: 430px;
+  min-height: 370px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-block: 60px;
+  padding-block: 65px;
   border-bottom: 1px solid var(--line);
 }
 
-.hero-content { max-width: 800px; }
-
-.eyebrow {
-  color: var(--mint);
-  font-size: .72rem;
-  font-weight: 800;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-}
-
-h1 {
-  margin: 20px 0;
-  font-size: clamp(3rem, 8vw, 5.8rem);
-  line-height: 1;
-  letter-spacing: -.075em;
-}
-
-.gradient-text {
-  color: transparent;
-  background: linear-gradient(100deg, #6ee7b7, #34d399, #5eead4);
-  -webkit-background-clip: text;
-  background-clip: text;
+.hero-content {
+  max-width: 790px;
 }
 
 .hero-copy {
-  max-width: 600px;
   margin: 0 auto;
   color: var(--muted);
-  font-size: 1.1rem;
-}
-
-.hero-actions {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 13px;
-  margin-top: 30px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-height: 48px;
-  padding: 0 22px;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: .9rem;
-  transition: .2s;
-}
-
-.btn:hover { transform: translateY(-2px); }
-
-.btn-primary {
-  color: #03251b;
-  background: linear-gradient(100deg, #6ee7b7, #34d399, #5eead4);
-  box-shadow: 0 8px 28px rgba(16,185,129,.18);
-}
-
-.btn-secondary {
-  border: 1px solid rgba(110,231,183,.35);
-  background: rgba(255,255,255,.025);
-}
-
-.btn-secondary:hover { border-color: var(--mint); }
-
-.hero-meta {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 22px;
-  margin-top: 32px;
-  color: #91b3a3;
-  font-size: .8rem;
-}
-
-.status-dot {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  margin-right: 7px;
-  border-radius: 50%;
-  background: var(--mint);
-  box-shadow: 0 0 12px rgba(110,231,183,.7);
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  line-height: 1.9;
 }
 
 section { padding-block: 60px; }
@@ -198,16 +139,25 @@ section { padding-block: 60px; }
 #proyectos {
   padding-top: 35px;
   padding-bottom: 65px;
+  scroll-margin-top: 90px;
 }
 
-.section-heading { margin-bottom: 24px; }
+.section-heading {
+  margin-bottom: 24px;
+}
 
-.section-heading h2,
-.about-copy h2 {
+.section-heading h2 {
   margin: 0;
-  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  font-size: clamp(2rem, 4vw, 2.7rem);
   line-height: 1.12;
   letter-spacing: -.055em;
+}
+
+.gradient-text {
+  color: transparent;
+  background: linear-gradient(100deg, #6ee7b7, #34d399, #5eead4);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .project-grid {
@@ -345,46 +295,10 @@ section { padding-block: 60px; }
 
 .project-footer a:hover { color: white; }
 
-.project-footer .coming-soon {
+.coming-soon {
   color: #91b3a3;
   font-size: .85rem;
   font-weight: 600;
-}
-
-.about-layout {
-  display: grid;
-  grid-template-columns: 1fr .8fr;
-  align-items: center;
-  gap: 55px;
-}
-
-.about-mark {
-  min-height: 250px;
-  display: grid;
-  place-items: center;
-  position: relative;
-}
-
-.big-mark {
-  width: 125px;
-  height: 125px;
-  display: grid;
-  place-items: center;
-  border-radius: 36px;
-  background: linear-gradient(140deg, #6ee7b7, #059669, #5eead4);
-  color: #03251b;
-  font-size: 4rem;
-  font-weight: 900;
-  box-shadow: 0 0 75px rgba(16,185,129,.18);
-  transform: rotate(-6deg);
-}
-
-.mark-caption {
-  position: absolute;
-  bottom: 12px;
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: .12em;
 }
 
 .tech-heading {
@@ -499,10 +413,16 @@ footer {
   .container { width: calc(100% - 30px); }
 
   .nav { min-height: 68px; }
-  .nav-links { gap: 12px; font-size: .76rem; }
+  .nav-links { gap: 10px; font-size: .76rem; }
 
-  .hero { min-height: 390px; padding-block: 50px; }
-  h1 { font-size: clamp(3rem, 14vw, 4.5rem); }
+  .nav-links .nav-projects {
+    padding: 8px 11px;
+  }
+
+  .hero {
+    min-height: 330px;
+    padding-block: 45px;
+  }
 
   section { padding-block: 48px; }
 
@@ -518,25 +438,6 @@ footer {
 
   .project-visual { height: 205px; }
   .project-body { padding: 20px; }
-
-  .about-layout {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .about-mark {
-    order: -1;
-    min-height: 200px;
-  }
-
-  .big-mark {
-    width: 100px;
-    height: 100px;
-    border-radius: 29px;
-    font-size: 3.3rem;
-  }
-
-  .mark-caption { bottom: 0; }
 
   .tech-grid { grid-template-columns: repeat(3, 1fr); }
 
@@ -555,9 +456,9 @@ footer {
 
 @media (max-width: 420px) {
   .brand { font-size: .9rem; }
-  .nav-links { gap: 9px; font-size: .7rem; }
+  .nav-links { gap: 7px; font-size: .7rem; }
   .nav-links a { white-space: nowrap; }
-  .hero-meta { flex-direction: column; gap: 8px; }
+  .nav-links .nav-projects { padding: 7px 9px; }
 }
 </style></head><body>
 <header>
@@ -567,8 +468,7 @@ footer {
       <span>NEA <small>Software</small></span>
     </a><nav class="nav-links" aria-label="Navegación principal">
   <a href="#inicio">Inicio</a>
-  <a href="#proyectos">Proyectos</a>
-  <a href="#sobre-mi">Sobre mí</a>
+  <a class="nav-projects" href="#proyectos">Mis proyectos</a>
   <a href="#contacto">Contacto</a>
 </nav>
 
@@ -576,35 +476,20 @@ footer {
 </header><main>
   <section class="container hero" id="inicio">
     <div class="hero-content">
-      <div class="eyebrow">Ideas · Código · Soluciones</div>  <h1>NEA <span class="gradient-text">Software</span></h1>
-
-  <p class="hero-copy">
-    Proyectos digitales creados con creatividad, tecnología y una mirada
-    puesta en el futuro del Nordeste argentino.
-  </p>
-
-  <div class="hero-actions">
-    <a class="btn btn-primary" href="#proyectos">
-      Explorar proyecto →
-    </a>
-
-    <a class="btn btn-secondary" href="#sobre-mi">
-      Sobre NEA
-    </a>
-  </div>
-
-  <div class="hero-meta">
-    <span><i class="status-dot"></i> Ideas en construcción</span>
-    <span>Argentina · Desarrollo independiente</span>
-  </div>
-</div>
-
+      <p class="hero-copy">
+        NEA Software es mi espacio personal para crear proyectos digitales,
+        aprender nuevas tecnologías y transformar ideas en herramientas
+        que puedan ser útiles para otras personas.
+        <br><br>
+        Cada proyecto es una oportunidad para experimentar, mejorar y
+        seguir creciendo en el mundo del desarrollo de software.
+      </p>
+    </div>
   </section>  <section id="proyectos">
-    <div class="container">  <div class="section-heading">
-    <h2>Mis proyectos</h2>
-  </div>
-
-  <div class="project-grid">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Mis proyectos</h2>
+      </div>  <div class="project-grid">
 
     <article class="project-card">
       <div class="project-visual">
@@ -636,7 +521,6 @@ footer {
              rel="noopener noreferrer">
             Visitar Stockeá ↗
           </a>
-
           <span class="pill">NEA Software</span>
         </div>
       </div>
@@ -673,34 +557,6 @@ footer {
   </div>
 </div>
 
-  </section>  <section id="sobre-mi">
-    <div class="container about-layout">  <div class="about-copy">
-    <div class="eyebrow">Sobre NEA</div>
-    <h2>Un espacio para desarrollar ideas.</h2>
-
-    <p>
-      NEA Software es mi espacio personal para crear proyectos digitales,
-      aprender nuevas tecnologías y transformar ideas en herramientas
-      que puedan ser útiles para otras personas.
-    </p>
-
-    <p>
-      Cada proyecto es una oportunidad para experimentar, mejorar y
-      seguir creciendo en el mundo del desarrollo de software.
-    </p>
-
-    <a class="btn btn-primary" href="#contacto">Conectemos →</a>
-  </div>
-
-  <div class="about-mark">
-    <div class="big-mark" aria-hidden="true">N</div>
-    <div class="mark-caption">
-      NEA <span class="gradient-text">Software</span>
-    </div>
-  </div>
-
-</div>
-
   </section>  <section>
     <div class="container">
       <div class="tech-heading">Tecnologías y herramientas</div>  <div class="tech-grid">
@@ -713,11 +569,10 @@ footer {
 </div>
 
   </section>  <section class="contact" id="contacto">
-    <div class="container contact-layout">  <div>
-    <div class="eyebrow">Contacto</div>
-    <h2>¿Hablamos de una idea?</h2>
-
-    <p>
+    <div class="container contact-layout">
+      <div>
+        <div class="eyebrow">Contacto</div>
+        <h2>¿Hablamos de una idea?</h2>    <p>
       Explorá mis proyectos, seguí su evolución o conectá conmigo
       para compartir una propuesta.
     </p>
@@ -738,17 +593,15 @@ footer {
     <br><br>
     <small>NEA Software · Ideas en movimiento</small>
   </blockquote>
-
 </div>
 
   </section>
 </main><footer>
-  <div class="container footer-inner"><a class="footer-brand" href="#inicio">
-  <span class="brand-icon">N</span>
-  NEA Software
-</a>
-
-<span>
+  <div class="container footer-inner">
+    <a class="footer-brand" href="#inicio">
+      <span class="brand-icon">N</span>
+      NEA Software
+    </a><span>
   © <span id="year"></span> NEA Software. Todos los derechos reservados.
 </span>
 
