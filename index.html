@@ -97,12 +97,12 @@ header {
 .nav-links a:hover { color: white; }
 
 .hero {
-  min-height: 490px;
+  min-height: 430px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-block: 80px;
+  padding-block: 60px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -171,9 +171,7 @@ h1 {
   background: rgba(255,255,255,.025);
 }
 
-.btn-secondary:hover {
-  border-color: var(--mint);
-}
+.btn-secondary:hover { border-color: var(--mint); }
 
 .hero-meta {
   display: flex;
@@ -195,27 +193,27 @@ h1 {
   box-shadow: 0 0 12px rgba(110,231,183,.7);
 }
 
-section { padding-block: 78px; }
+section { padding-block: 60px; }
 
-.section-heading { margin-bottom: 28px; }
+#proyectos {
+  padding-top: 35px;
+  padding-bottom: 65px;
+}
+
+.section-heading { margin-bottom: 24px; }
 
 .section-heading h2,
 .about-copy h2 {
-  margin: 12px 0;
+  margin: 0;
   font-size: clamp(1.9rem, 4vw, 2.7rem);
   line-height: 1.12;
   letter-spacing: -.055em;
 }
 
-.section-heading p,
-.about-copy p {
-  color: var(--muted);
-}
-
 .project-grid {
   display: grid;
-  grid-template-columns: minmax(0, 760px);
-  justify-content: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
 }
 
 .project-card {
@@ -233,7 +231,7 @@ section { padding-block: 78px; }
 }
 
 .project-visual {
-  height: 260px;
+  height: 220px;
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -248,32 +246,45 @@ section { padding-block: 78px; }
 .project-visual::after {
   content: "";
   position: absolute;
-  width: 240px;
-  height: 240px;
+  width: 210px;
+  height: 210px;
   border: 1px solid rgba(110,231,183,.13);
   border-radius: 50%;
 }
 
 .project-visual::after {
-  width: 170px;
-  height: 170px;
+  width: 150px;
+  height: 150px;
 }
 
 .stock-icon {
   z-index: 1;
-  width: 110px;
-  height: 110px;
+  width: 100px;
+  height: 100px;
   display: grid;
   place-items: center;
-  border-radius: 32px;
+  border-radius: 30px;
   color: #04251b;
-  font-size: 4rem;
+  font-size: 3.7rem;
   font-weight: 900;
   background: linear-gradient(140deg, #6ee7b7, #059669, #5eead4);
   box-shadow: 0 0 65px rgba(16,185,129,.2);
 }
 
-.project-body { padding: 25px; }
+.next-icon {
+  z-index: 1;
+  width: 100px;
+  height: 100px;
+  display: grid;
+  place-items: center;
+  border-radius: 30px;
+  border: 1px solid rgba(110,231,183,.3);
+  color: var(--mint);
+  font-size: 3.5rem;
+  background: rgba(16,185,129,.07);
+}
+
+.project-body { padding: 23px; }
 
 .project-title-row {
   display: flex;
@@ -333,6 +344,12 @@ section { padding-block: 78px; }
 }
 
 .project-footer a:hover { color: white; }
+
+.project-footer .coming-soon {
+  color: #91b3a3;
+  font-size: .85rem;
+  font-weight: 600;
+}
 
 .about-layout {
   display: grid;
@@ -484,10 +501,20 @@ footer {
   .nav { min-height: 68px; }
   .nav-links { gap: 12px; font-size: .76rem; }
 
-  .hero { min-height: 430px; padding-block: 65px; }
+  .hero { min-height: 390px; padding-block: 50px; }
   h1 { font-size: clamp(3rem, 14vw, 4.5rem); }
 
-  section { padding-block: 58px; }
+  section { padding-block: 48px; }
+
+  #proyectos {
+    padding-top: 28px;
+    padding-bottom: 50px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
 
   .project-visual { height: 205px; }
   .project-body { padding: 20px; }
@@ -519,7 +546,11 @@ footer {
   }
 
   .quote { margin-top: 15px; }
-  .footer-inner { align-items: flex-start; flex-direction: column; }
+
+  .footer-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 420px) {
@@ -569,15 +600,12 @@ footer {
 </div>
 
   </section>  <section id="proyectos">
-    <div class="container">
-      <div class="section-heading">
-        <div class="eyebrow">Proyecto destacado</div>
-        <h2>Ideas que se convierten en soluciones.</h2>
-        <p>
-          Desarrollo herramientas digitales para resolver problemas reales.
-          Este es uno de los proyectos en los que estoy trabajando.
-        </p>
-      </div>  <div class="project-grid">
+    <div class="container">  <div class="section-heading">
+    <h2>Mis proyectos</h2>
+  </div>
+
+  <div class="project-grid">
+
     <article class="project-card">
       <div class="project-visual">
         <div class="stock-icon" aria-hidden="true">S</div>
@@ -608,18 +636,49 @@ footer {
              rel="noopener noreferrer">
             Visitar Stockeá ↗
           </a>
+
           <span class="pill">NEA Software</span>
         </div>
       </div>
     </article>
+
+    <article class="project-card">
+      <div class="project-visual">
+        <div class="next-icon" aria-hidden="true">+</div>
+      </div>
+
+      <div class="project-body">
+        <div class="project-title-row">
+          <h3>Próximo proyecto</h3>
+          <span class="pill">Próximamente</span>
+        </div>
+
+        <p>
+          Un nuevo proyecto digital de NEA Software.
+          Próximamente habrá más novedades.
+        </p>
+
+        <div class="tags">
+          <span>Nuevo proyecto</span>
+          <span>En planificación</span>
+        </div>
+
+        <div class="project-footer">
+          <span class="coming-soon">En preparación</span>
+          <span class="pill">NEA Software</span>
+        </div>
+      </div>
+    </article>
+
   </div>
 </div>
 
   </section>  <section id="sobre-mi">
-    <div class="container about-layout">
-      <div class="about-copy">
-        <div class="eyebrow">Sobre NEA</div>
-        <h2>Un espacio para desarrollar ideas.</h2>    <p>
+    <div class="container about-layout">  <div class="about-copy">
+    <div class="eyebrow">Sobre NEA</div>
+    <h2>Un espacio para desarrollar ideas.</h2>
+
+    <p>
       NEA Software es mi espacio personal para crear proyectos digitales,
       aprender nuevas tecnologías y transformar ideas en herramientas
       que puedan ser útiles para otras personas.
@@ -635,8 +694,11 @@ footer {
 
   <div class="about-mark">
     <div class="big-mark" aria-hidden="true">N</div>
-    <div class="mark-caption">NEA <span class="gradient-text">Software</span></div>
+    <div class="mark-caption">
+      NEA <span class="gradient-text">Software</span>
+    </div>
   </div>
+
 </div>
 
   </section>  <section>
@@ -651,18 +713,22 @@ footer {
 </div>
 
   </section>  <section class="contact" id="contacto">
-    <div class="container contact-layout">
-      <div>
-        <div class="eyebrow">Contacto</div>
-        <h2>¿Hablamos de una idea?</h2>    <p>
+    <div class="container contact-layout">  <div>
+    <div class="eyebrow">Contacto</div>
+    <h2>¿Hablamos de una idea?</h2>
+
+    <p>
       Explorá mis proyectos, seguí su evolución o conectá conmigo
       para compartir una propuesta.
     </p>
 
     <div class="socials">
-      <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/"
+         target="_blank"
+         rel="noopener noreferrer">
         GitHub ↗
       </a>
+
       <a href="#proyectos">Mis proyectos</a>
     </div>
   </div>
@@ -672,15 +738,20 @@ footer {
     <br><br>
     <small>NEA Software · Ideas en movimiento</small>
   </blockquote>
+
 </div>
 
   </section>
 </main><footer>
-  <div class="container footer-inner">
-    <a class="footer-brand" href="#inicio">
-      <span class="brand-icon">N</span>
-      NEA Software
-    </a><span>© <span id="year"></span> NEA Software. Todos los derechos reservados.</span>
+  <div class="container footer-inner"><a class="footer-brand" href="#inicio">
+  <span class="brand-icon">N</span>
+  NEA Software
+</a>
+
+<span>
+  © <span id="year"></span> NEA Software. Todos los derechos reservados.
+</span>
+
 <span>Hecho con ♥ y muchas ideas.</span>
 
   </div>
