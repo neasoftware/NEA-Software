@@ -1,10 +1,13 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#071914">
   <title>NEA Software | Proyectos digitales</title>
-  <meta name="description" content="NEA Software: proyectos digitales, herramientas y desarrollo de software.">  <style>
+  <meta name="description" content="NEA Software: proyectos digitales, herramientas y desarrollo de software.">
+
+  <style>
     :root {
       --bg: #071914;
       --panel: #0b241b;
@@ -259,7 +262,7 @@
     .featured {
       position: relative;
       overflow: hidden;
-      padding: clamp(23px, 5vw, 42px);
+      padding: clamp(20px, 4vw, 32px);
       background:
         radial-gradient(ellipse at 100% 0%, rgba(16,185,129,.15), transparent 52%),
         linear-gradient(135deg, #0d2c20, #0a2018);
@@ -277,7 +280,7 @@
       display: flex;
       align-items: center;
       gap: 9px;
-      margin-bottom: 23px;
+      margin-bottom: 20px;
     }
 
     .status-dot {
@@ -288,37 +291,35 @@
       box-shadow: 0 0 12px rgba(16,185,129,.65);
     }
 
-    .featured-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 28px;
+    /* BANNER DE STOCKEÁ */
+
+    .stockea-banner {
+      display: block;
+      width: 100%;
+      height: clamp(150px, 28vw, 290px);
+      object-fit: cover;
+      object-position: center;
+      border: 1px solid rgba(110,231,183,.18);
+      border-radius: 17px;
+      margin-bottom: 25px;
+      background: #102d22;
     }
 
     .featured-info {
-      max-width: 630px;
+      max-width: 760px;
     }
 
     .featured-info h3 {
       font-size: clamp(1.9rem, 4vw, 2.8rem);
       letter-spacing: -1px;
       line-height: 1.15;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .featured-info p {
       color: var(--muted);
-      margin-bottom: 24px;
-      max-width: 570px;
-    }
-
-    .featured-logo {
-      width: 120px;
-      height: 120px;
-      flex-shrink: 0;
-      object-fit: contain;
-      border-radius: 24px;
-      box-shadow: 0 15px 50px rgba(16,185,129,.13);
+      margin-bottom: 22px;
+      max-width: 650px;
     }
 
     .button {
@@ -411,13 +412,14 @@
       display: flex;
       flex-direction: column;
       min-height: 270px;
-      padding: 26px;
+      padding: 20px;
       background:
         radial-gradient(ellipse at 100% 0%, rgba(16,185,129,.08), transparent 55%),
         var(--panel);
       border: 1px solid var(--line);
       border-radius: var(--radius);
       transition: var(--transition);
+      overflow: hidden;
     }
 
     .project-card:hover {
@@ -425,26 +427,16 @@
       border-color: rgba(110,231,183,.4);
     }
 
-    .project-logo {
-      width: 58px;
-      height: 58px;
-      object-fit: contain;
+    .project-banner {
+      display: block;
+      width: 100%;
+      height: clamp(145px, 20vw, 210px);
+      object-fit: cover;
+      object-position: center;
+      border: 1px solid rgba(110,231,183,.15);
       border-radius: 14px;
-      margin-bottom: 23px;
-    }
-
-    .project-icon {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      background: rgba(16,185,129,.13);
-      border: 1px solid rgba(110,231,183,.16);
-      color: var(--mint);
-      border-radius: 14px;
-      font-weight: 900;
-      font-size: 1.25rem;
-      margin-bottom: 23px;
+      margin-bottom: 20px;
+      background: #102d22;
     }
 
     .project-card h2 {
@@ -455,7 +447,7 @@
     .project-card p {
       color: var(--muted);
       font-size: .95rem;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .project-card .button {
@@ -477,6 +469,20 @@
       padding: 5px 9px;
       border-radius: 8px;
       font-size: .75rem;
+    }
+
+    .project-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      background: rgba(16,185,129,.13);
+      border: 1px solid rgba(110,231,183,.16);
+      color: var(--mint);
+      border-radius: 14px;
+      font-weight: 900;
+      font-size: 1.25rem;
+      margin-bottom: 23px;
     }
 
     .coming-card {
@@ -590,14 +596,10 @@
         line-height: 1.8;
       }
 
-      .featured-content {
-        align-items: flex-start;
-      }
-
-      .featured-logo {
-        width: 65px;
-        height: 65px;
-        border-radius: 15px;
+      .stockea-banner {
+        height: 175px;
+        border-radius: 13px;
+        margin-bottom: 21px;
       }
 
       .tools-grid {
@@ -616,7 +618,12 @@
 
       .project-card {
         min-height: 250px;
-        padding: 23px;
+        padding: 17px;
+      }
+
+      .project-banner {
+        height: 190px;
+        margin-bottom: 18px;
       }
 
       .footer {
@@ -642,13 +649,12 @@
         font-size: .72rem;
       }
 
-      .featured-content {
-        flex-direction: column-reverse;
+      .stockea-banner {
+        height: 145px;
       }
 
-      .featured-logo {
-        width: 58px;
-        height: 58px;
+      .project-banner {
+        height: 160px;
       }
     }
 
@@ -659,197 +665,216 @@
         scroll-behavior: auto !important;
       }
     }
-  </style></head><body>
+  </style>
+</head>
+
+<body>
   <header class="header">
     <div class="header-inner">
       <a href="#inicio" class="brand" data-screen="0" aria-label="NEA Software, inicio">
         <span class="brand-icon">N</span>
         <span>NEA <span>Software</span></span>
-      </a>  <nav class="nav" aria-label="Navegación principal">
-    <button class="nav-button active" data-screen="0" aria-current="page">Inicio</button>
-    <button class="nav-button" data-screen="1">Proyectos</button>
-    <button class="nav-button" data-screen="2">Contacto</button>
-  </nav>
-</div>
+      </a>
 
-  </header>  <main class="app" id="app">
+      <nav class="nav" aria-label="Navegación principal">
+        <button class="nav-button active" data-screen="0" aria-current="page">Inicio</button>
+        <button class="nav-button" data-screen="1">Proyectos</button>
+        <button class="nav-button" data-screen="2">Contacto</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="app" id="app">
+
     <!-- PANTALLA 1: INICIO -->
     <section class="screen active" id="inicio" aria-label="Inicio">
       <div class="intro">
         <div class="eyebrow">Mi espacio digital</div>
-        <h1>Bienvenido a <span>NEA Software.</span></h1>    <p class="intro-copy">
-      NEA Software es mi espacio personal para crear proyectos digitales,
-      aprender nuevas tecnologías y transformar ideas en herramientas que
-      puedan ser útiles para otras personas.
-      <br><br>
-      Cada proyecto es una oportunidad para experimentar, mejorar y seguir
-      creciendo en el mundo del desarrollo de software.
-    </p>
-  </div>
+        <h1>Bienvenido a <span>NEA Software.</span></h1>
 
-  <section class="block" aria-labelledby="featured-title">
-    <div class="block-heading">
-      <h2 id="featured-title">Proyecto destacado</h2>
-      <span class="small-label">01 / Proyecto</span>
-    </div>
-
-    <article class="featured">
-      <div class="featured-top">
-        <span class="status-dot"></span>
-        <span class="small-label">Proyecto personal</span>
+        <p class="intro-copy">
+          NEA Software es mi espacio personal para crear proyectos digitales,
+          aprender nuevas tecnologías y transformar ideas en herramientas que
+          puedan ser útiles para otras personas.
+          <br><br>
+          Cada proyecto es una oportunidad para experimentar, mejorar y seguir
+          creciendo en el mundo del desarrollo de software.
+        </p>
       </div>
 
-      <div class="featured-content">
-        <div class="featured-info">
-          <h3>Stockeá</h3>
-          <p>
-            Una aplicación para organizar negocios, administrar el stock,
-            registrar ventas y consultar estadísticas desde un mismo lugar.
-          </p>
-
-          <a class="button button-primary"
-             href="https://neasoftware.github.io/Stockea/"
-             target="_blank" rel="noopener noreferrer">
-            Visitar Stockeá <span aria-hidden="true">↗</span>
-          </a>
+      <section class="block" aria-labelledby="featured-title">
+        <div class="block-heading">
+          <h2 id="featured-title">Proyecto destacado</h2>
+          <span class="small-label">01 / Proyecto</span>
         </div>
 
-        <!-- Logo de Stockeá: no reemplaza el logo de NEA Software -->
-        <img class="featured-logo"
-             src="stockea-logo.jpg"
-             alt="Logo de Stockeá">
+        <article class="featured">
+          <div class="featured-top">
+            <span class="status-dot"></span>
+            <span class="small-label">Proyecto personal</span>
+          </div>
+
+          <img
+            class="stockea-banner"
+            src="stockea-logo.jpg"
+            alt="Banner de Stockeá"
+          >
+
+          <div class="featured-info">
+            <h3>Stockeá</h3>
+            <p>
+              Una aplicación para organizar negocios, administrar el stock,
+              registrar ventas y consultar estadísticas desde un mismo lugar.
+            </p>
+
+            <a
+              class="button button-primary"
+              href="https://neasoftware.github.io/Stockea/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visitar Stockeá <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
+      </section>
+
+      <section class="block" aria-labelledby="tools-title">
+        <div class="block-heading">
+          <h2 id="tools-title">Herramientas y tecnologías</h2>
+          <span class="small-label">Mi entorno</span>
+        </div>
+
+        <div class="tools-grid">
+          <article class="tool">
+            <div class="tool-symbol">&lt;/&gt;</div>
+            <h3>HTML</h3>
+            <p>Estructura web</p>
+          </article>
+
+          <article class="tool">
+            <div class="tool-symbol">#</div>
+            <h3>CSS</h3>
+            <p>Diseño e interfaz</p>
+          </article>
+
+          <article class="tool">
+            <div class="tool-symbol">JS</div>
+            <h3>JavaScript</h3>
+            <p>Interactividad</p>
+          </article>
+
+          <article class="tool">
+            <div class="tool-symbol">◆</div>
+            <h3>Firebase</h3>
+            <p>Servicios en la nube</p>
+          </article>
+
+          <article class="tool">
+            <div class="tool-symbol">GH</div>
+            <h3>GitHub</h3>
+            <p>Repositorios y código</p>
+          </article>
+
+          <article class="tool">
+            <div class="tool-symbol">↗</div>
+            <h3>GitHub Pages</h3>
+            <p>Publicación web</p>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <!-- PANTALLA 2: PROYECTOS -->
+    <section class="screen" id="proyectos" aria-label="Mis proyectos">
+      <div class="projects-header">
+        <div class="eyebrow">Lo que estoy creando</div>
+        <h1 class="section-title">Mis proyectos</h1>
+        <p class="section-description">
+          Cada proyecto representa una idea, algo nuevo que aprender y una
+          oportunidad para seguir desarrollando mis habilidades.
+        </p>
       </div>
-    </article>
-  </section>
 
-  <section class="block" aria-labelledby="tools-title">
-    <div class="block-heading">
-      <h2 id="tools-title">Herramientas y tecnologías</h2>
-      <span class="small-label">Mi entorno</span>
-    </div>
+      <div class="project-grid">
+        <article class="project-card">
+          <img
+            class="project-banner"
+            src="stockea-logo.jpg"
+            alt="Banner de Stockeá"
+          >
 
-    <div class="tools-grid">
-      <article class="tool">
-        <div class="tool-symbol">&lt;/&gt;</div>
-        <h3>HTML</h3>
-        <p>Estructura web</p>
-      </article>
+          <h2>Stockeá</h2>
+          <p>
+            Gestión de stock, ventas, productos y estadísticas para pequeños
+            negocios. Diseñada para facilitar el control del día a día.
+          </p>
 
-      <article class="tool">
-        <div class="tool-symbol">#</div>
-        <h3>CSS</h3>
-        <p>Diseño e interfaz</p>
-      </article>
+          <div class="project-tags">
+            <span class="tag">Web</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Firebase</span>
+          </div>
 
-      <article class="tool">
-        <div class="tool-symbol">JS</div>
-        <h3>JavaScript</h3>
-        <p>Interactividad</p>
-      </article>
+          <a
+            class="button button-primary"
+            href="https://neasoftware.github.io/Stockea/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Abrir proyecto ↗
+          </a>
+        </article>
 
-      <article class="tool">
-        <div class="tool-symbol">◆</div>
-        <h3>Firebase</h3>
-        <p>Servicios en la nube</p>
-      </article>
+        <article class="project-card coming-card">
+          <div class="project-icon" aria-hidden="true">+</div>
+          <h2>Próximo proyecto</h2>
+          <p>
+            Un nuevo proyecto está por llegar. Este espacio queda preparado
+            para sumar otra idea y compartirla.
+          </p>
 
-      <article class="tool">
-        <div class="tool-symbol">GH</div>
-        <h3>GitHub</h3>
-        <p>Repositorios y código</p>
-      </article>
+          <div class="project-tags">
+            <span class="tag">En preparación</span>
+          </div>
 
-      <article class="tool">
-        <div class="tool-symbol">↗</div>
-        <h3>GitHub Pages</h3>
-        <p>Publicación web</p>
-      </article>
-    </div>
-  </section>
-</section>
+          <span class="button button-secondary">Próximamente</span>
+        </article>
+      </div>
+    </section>
 
-<!-- PANTALLA 2: PROYECTOS -->
-<section class="screen" id="proyectos" aria-label="Mis proyectos">
-  <div class="projects-header">
-    <div class="eyebrow">Lo que estoy creando</div>
-    <h1 class="section-title">Mis proyectos</h1>
-    <p class="section-description">
-      Cada proyecto representa una idea, algo nuevo que aprender y una
-      oportunidad para seguir desarrollando mis habilidades.
-    </p>
-  </div>
+    <!-- PANTALLA 3: CONTACTO -->
+    <section class="screen" id="contacto" aria-label="Contacto">
+      <div class="eyebrow">Conectemos</div>
+      <h1 class="section-title">Contacto</h1>
 
-  <div class="project-grid">
-    <article class="project-card">
-      <!-- Logo de Stockeá dentro de su tarjeta -->
-      <img class="project-logo"
-           src="stockea-logo.jpg"
-           alt="Logo de Stockeá">
-
-      <h2>Stockeá</h2>
-      <p>
-        Gestión de stock, ventas, productos y estadísticas para pequeños
-        negocios. Diseñada para facilitar el control del día a día.
+      <p class="section-description">
+        Este espacio estará dedicado a compartir mis redes sociales y las
+        distintas formas de conocer más sobre mis proyectos.
       </p>
 
-      <div class="project-tags">
-        <span class="tag">Web</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">Firebase</span>
+      <div class="contact-panel">
+        <h2>Próximamente, más formas de conectar.</h2>
+        <p>
+          Cuando tenga listas mis redes sociales y otros canales de contacto,
+          los voy a agregar acá para que puedas encontrarlos fácilmente.
+        </p>
+
+        <div class="contact-note">
+          <span aria-hidden="true">✳</span>
+          <span>Mis enlaces se agregarán próximamente.</span>
+        </div>
       </div>
+    </section>
 
-      <a class="button button-primary"
-         href="https://neasoftware.github.io/Stockea/"
-         target="_blank" rel="noopener noreferrer">
-        Abrir proyecto ↗
-      </a>
-    </article>
+  </main>
 
-    <article class="project-card coming-card">
-      <div class="project-icon" aria-hidden="true">+</div>
-      <h2>Próximo proyecto</h2>
-      <p>
-        Un nuevo proyecto está por llegar. Este espacio queda preparado
-        para sumar otra idea y compartirla.
-      </p>
-
-      <div class="project-tags">
-        <span class="tag">En preparación</span>
-      </div>
-
-      <span class="button button-secondary">Próximamente</span>
-    </article>
-  </div>
-</section>
-
-<!-- PANTALLA 3: CONTACTO -->
-<section class="screen" id="contacto" aria-label="Contacto">
-  <div class="eyebrow">Conectemos</div>
-  <h1 class="section-title">Contacto</h1>
-
-  <p class="section-description">
-    Este espacio estará dedicado a compartir mis redes sociales y las
-    distintas formas de conocer más sobre mis proyectos.
-  </p>
-
-  <div class="contact-panel">
-    <h2>Próximamente, más formas de conectar.</h2>
-    <p>
-      Cuando tenga listas mis redes sociales y otros canales de contacto,
-      los voy a agregar acá para que puedas encontrarlos fácilmente.
-    </p>
-
-    <div class="contact-note">
-      <span aria-hidden="true">✳</span>
-      <span>Mis enlaces se agregarán próximamente.</span>
-    </div>
-  </div>
-</section>
-
-  </main>  <footer class="footer">
+  <footer class="footer">
     <p>© <span id="year"></span> <strong>NEA Software</strong></p>
     <p>Ideas digitales. Aprendizaje constante.</p>
-  </footer>  <script>
+  </footer>
+
+  <script>
     "use strict";
 
     const screens = Array.from(document.querySelectorAll(".screen"));
@@ -897,7 +922,7 @@
       });
     });
 
-    // El logo de NEA Software también permite volver a Inicio.
+    // El logo de NEA Software permite volver a Inicio.
     document.querySelector(".brand").addEventListener("click", (event) => {
       event.preventDefault();
       showScreen(0, -1);
@@ -915,7 +940,6 @@
       const deltaX = touch.screenX - touchStartX;
       const deltaY = touch.screenY - touchStartY;
 
-      // No cambiar de pantalla cuando el gesto sea vertical.
       if (
         Math.abs(deltaX) < 75 ||
         Math.abs(deltaX) < Math.abs(deltaY) * 1.25
@@ -956,5 +980,6 @@
     screens.forEach((screen, i) => {
       screen.setAttribute("aria-hidden", i !== 0 ? "true" : "false");
     });
-  </script></body>
+  </script>
+</body>
 </html>
