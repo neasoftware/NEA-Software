@@ -1,343 +1,690 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#030c07">
-  <title>NEA Software — Ideas que se convierten en tecnología</title>
-  <style>
-    :root {
-      --bg-deep: #030c07;
-      --bg-card: #081a11;
-      --border-green: rgba(52, 211, 153, 0.22);
-      --green-neon: #34d399;
-      --green-glow: #10b981;
-      --mint: #6ee7b7;
-      --text-main: #edfdf4;
-      --text-muted: #94b3a2;
-      --max-width: 1100px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#06110f">
+<meta name="description" content="NEA Software — Ideas, tecnología y proyectos digitales.">
+<title>NEA Software — Ideas que se convierten en tecnología</title><style>
+:root {
+  --bg: #06110f;
+  --panel: #0b1d18;
+  --text: #f1fff8;
+  --muted: #a6c7b9;
+  --line: rgba(110,231,183,.18);
+  --green: #10b981;
+  --mint: #6ee7b7;
+  --aqua: #5eead4;
+}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    
-    body {
-      background-color: var(--bg-deep);
-      color: var(--text-main);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.6;
-      background-image: 
-        radial-gradient(circle at 10% 10%, rgba(16, 185, 129, 0.12) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.08) 0%, transparent 40%);
-      min-height: 100vh;
-    }
+* { box-sizing: border-box; }
 
-    a { text-decoration: none; color: inherit; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
 
-    .container {
-      width: min(var(--max-width), calc(100% - 32px));
-      margin-inline: auto;
-    }
+body {
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at 80% 0%, rgba(16,185,129,.15), transparent 35rem),
+    radial-gradient(ellipse at 10% 40%, rgba(45,212,191,.08), transparent 30rem),
+    var(--bg);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
 
-    /* HEADER */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(3, 12, 7, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-green);
-    }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
 
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 70px;
-    }
+.container {
+  width: min(1120px, calc(100% - 40px));
+  margin-inline: auto;
+}
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      font-size: 1.15rem;
-      letter-spacing: -0.02em;
-    }
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(6,17,15,.88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+}
 
-    .brand-icon {
-      width: 36px;
-      height: 36px;
-      background: linear-gradient(135deg, var(--green-neon), var(--green-glow));
-      border-radius: 10px;
-      display: grid;
-      place-items: center;
-      color: #030c07;
-      font-weight: 900;
-    }
+.nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
 
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      font-size: 0.92rem;
-      color: var(--text-muted);
-    }
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -.04em;
+}
 
-    .nav-links a:hover {
-      color: var(--green-neon);
-    }
+.brand small {
+  color: #b6d0c4;
+  font-weight: 500;
+  letter-spacing: 0;
+}
 
-    /* HERO SECTION */
-    .hero {
-      padding: 90px 0 60px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+.brand-icon {
+  width: 39px;
+  height: 39px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: linear-gradient(140deg, #6ee7b7, #059669, #5eead4);
+  color: #03251b;
+  font-weight: 900;
+  font-size: 1.4rem;
+  box-shadow: 0 5px 25px rgba(16,185,129,.22);
+}
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      background: rgba(52, 211, 153, 0.08);
-      border: 1px solid var(--border-green);
-      border-radius: 99px;
-      color: var(--mint);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
+.nav-links {
+  display: flex;
+  gap: 28px;
+  color: #b6cfc4;
+  font-size: .9rem;
+}
 
-    h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      margin-bottom: 16px;
-    }
+.nav-links a:hover { color: white; }
 
-    h1 span {
-      background: linear-gradient(120deg, var(--mint), var(--green-neon));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+.hero {
+  min-height: 490px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-block: 80px;
+  border-bottom: 1px solid var(--line);
+}
 
-    .hero p {
-      max-width: 580px;
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      margin-bottom: 30px;
-    }
+.hero-content { max-width: 800px; }
 
-    .btn-main {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: linear-gradient(135deg, var(--green-neon), var(--green-glow));
-      color: #030c07;
-      padding: 12px 28px;
-      border-radius: 99px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 8px 25px rgba(52, 211, 153, 0.25);
-    }
+.eyebrow {
+  color: var(--mint);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
 
-    .btn-main:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(52, 211, 153, 0.4);
-    }
+h1 {
+  margin: 20px 0;
+  font-size: clamp(3rem, 8vw, 5.8rem);
+  line-height: 1;
+  letter-spacing: -.075em;
+}
 
-    /* PROYECTOS SECTION */
-    section {
-      padding: 70px 0;
-      border-top: 1px solid rgba(52, 211, 153, 0.08);
-    }
+.gradient-text {
+  color: transparent;
+  background: linear-gradient(100deg, #6ee7b7, #34d399, #5eead4);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
 
-    .section-title {
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin-bottom: 30px;
-      letter-spacing: -0.03em;
-    }
+.hero-copy {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
 
-    .project-container {
-      display: flex;
-      justify-content: center;
-    }
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 30px;
+}
 
-    .project-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-green);
-      border-radius: 20px;
-      width: min(100%, 420px);
-      overflow: hidden;
-      transition: transform 0.3s, border-color 0.3s;
-    }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: .9rem;
+  transition: .2s;
+}
 
-    .project-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--green-neon);
-    }
+.btn:hover { transform: translateY(-2px); }
 
-    .project-banner {
-      height: 160px;
-      background: linear-gradient(160deg, #0d2e1b, #05160d);
-      display: grid;
-      place-items: center;
-      border-bottom: 1px solid var(--border-green);
-      color: var(--mint);
-      font-weight: 800;
-      font-size: 1.2rem;
-      letter-spacing: 0.05em;
-    }
+.btn-primary {
+  color: #03251b;
+  background: linear-gradient(100deg, #6ee7b7, #34d399, #5eead4);
+  box-shadow: 0 8px 28px rgba(16,185,129,.18);
+}
 
-    .project-content {
-      padding: 24px;
-    }
+.btn-secondary {
+  border: 1px solid rgba(110,231,183,.35);
+  background: rgba(255,255,255,.025);
+}
 
-    .project-content h3 {
-      font-size: 1.25rem;
-      margin-bottom: 10px;
-    }
+.btn-secondary:hover {
+  border-color: var(--mint);
+}
 
-    .project-content p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-bottom: 20px;
-    }
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 32px;
+  color: #91b3a3;
+  font-size: .8rem;
+}
 
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--green-neon);
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
+.status-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 12px rgba(110,231,183,.7);
+}
 
-    .project-link:hover {
-      text-decoration: underline;
-    }
+section { padding-block: 78px; }
 
-    /* SOBRE MI & TECH */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
+.section-heading { margin-bottom: 28px; }
 
-    .about-text p {
-      color: var(--text-muted);
-      margin-bottom: 14px;
-      font-size: 0.95rem;
-    }
+.section-heading h2,
+.about-copy h2 {
+  margin: 12px 0;
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  line-height: 1.12;
+  letter-spacing: -.055em;
+}
 
-    .tech-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
-    }
+.section-heading p,
+.about-copy p {
+  color: var(--muted);
+}
 
-    .tech-badge {
-      background: var(--bg-card);
-      border: 1px solid var(--border-green);
-      padding: 8px 14px;
-      border-radius: 10px;
-      font-size: 0.82rem;
-      color: var(--mint);
-      font-weight: 600;
-    }
+.project-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 760px);
+  justify-content: center;
+}
 
-    /* FOOTER */
-    footer {
-      padding: 40px 0;
-      border-top: 1px solid var(--border-green);
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
+.project-card {
+  overflow: hidden;
+  border: 1px solid rgba(110,231,183,.22);
+  border-radius: 22px;
+  background: linear-gradient(150deg, #0d241b, #07130f);
+  transition: transform .25s, border-color .25s, box-shadow .25s;
+}
 
-    @media (max-width: 768px) {
-      .about-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-    }
-  </style>
-</head>
-<body>
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(94,234,212,.65);
+  box-shadow: 0 20px 55px rgba(0,0,0,.24);
+}
 
-  <header>
-    <div class="container nav">
-      <a href="#" class="brand">
-        <div class="brand-icon">N</div>
-        <span>NEA Software</span>
-      </a>
-      <nav class="nav-links">
-        <a href="#inicio">Inicio</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#sobre-mi">Sobre mí</a>
-      </nav>
-    </div>
-  </header>
+.project-visual {
+  height: 260px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  position: relative;
+  background:
+    radial-gradient(ellipse at center, rgba(16,185,129,.24), transparent 65%),
+    linear-gradient(140deg, #102b22, #07130f);
+  border-bottom: 1px solid var(--line);
+}
 
-  <main class="container">
-    <section class="hero" id="inicio">
-      <div class="badge">🌱 Desarrollado en el NEA</div>
-      <h1>NEA <span>Software</span></h1>
-      <p>Transformando ideas y necesidades reales en herramientas digitales modernas y funcionales.</p>
-      <a href="#proyectos" class="btn-main">Ver proyectos ↓</a>
-    </section>
+.project-visual::before,
+.project-visual::after {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border: 1px solid rgba(110,231,183,.13);
+  border-radius: 50%;
+}
 
-    <section id="proyectos">
-      <h2 class="section-title">Proyecto destacado</h2>
-      <div class="project-container">
-        <div class="project-card">
-          <div class="project-banner">STOCKEÁ</div>
-          <div class="project-content">
-            <h3>Stockeá</h3>
-            <p>Herramienta web diseñada para organizar stock, registrar ventas y optimizar el control de negocios locales.</p>
-            <a href="https://neasoftware.github.io/stockea/" target="_blank" rel="noopener noreferrer" class="project-link">
-              Ir al sitio oficial ➔
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+.project-visual::after {
+  width: 170px;
+  height: 170px;
+}
 
-    <section id="sobre-mi">
-      <div class="about-grid">
-        <div class="about-text">
-          <h2 class="section-title">Sobre NEA Software</h2>
-          <p>Un espacio de desarrollo independiente enfocado en crear soluciones tecnológicas prácticas, con una identidad propia inspirada en nuestra región.</p>
-          <p>Cada proyecto busca resolver problemas cotidianos mediante código limpio, interfaces cuidadas y herramientas accesibles.</p>
-        </div>
-        <div>
-          <h3 style="font-size: 1.1rem; margin-bottom: 12px; color: var(--mint);">Tecnologías principales</h3>
-          <div class="tech-badges">
-            <span class="tech-badge">HTML5</span>
-            <span class="tech-badge">CSS3</span>
-            <span class="tech-badge">JavaScript</span>
-            <span class="tech-badge">Firebase</span>
-            <span class="tech-badge">Git & GitHub</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+.stock-icon {
+  z-index: 1;
+  width: 110px;
+  height: 110px;
+  display: grid;
+  place-items: center;
+  border-radius: 32px;
+  color: #04251b;
+  font-size: 4rem;
+  font-weight: 900;
+  background: linear-gradient(140deg, #6ee7b7, #059669, #5eead4);
+  box-shadow: 0 0 65px rgba(16,185,129,.2);
+}
 
-  <footer>
+.project-body { padding: 25px; }
+
+.project-title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.project-title-row h3 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.pill {
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: rgba(16,185,129,.13);
+  color: #a7f3d0;
+  font-size: .7rem;
+  font-weight: 800;
+}
+
+.project-body p {
+  color: var(--muted);
+  margin: 14px 0 18px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.tags span {
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #102a21;
+  color: #b7d9ca;
+  font-size: .75rem;
+}
+
+.project-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 17px;
+  border-top: 1px solid var(--line);
+}
+
+.project-footer a {
+  color: var(--mint);
+  font-weight: 700;
+  font-size: .9rem;
+}
+
+.project-footer a:hover { color: white; }
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr .8fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.about-mark {
+  min-height: 250px;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.big-mark {
+  width: 125px;
+  height: 125px;
+  display: grid;
+  place-items: center;
+  border-radius: 36px;
+  background: linear-gradient(140deg, #6ee7b7, #059669, #5eead4);
+  color: #03251b;
+  font-size: 4rem;
+  font-weight: 900;
+  box-shadow: 0 0 75px rgba(16,185,129,.18);
+  transform: rotate(-6deg);
+}
+
+.mark-caption {
+  position: absolute;
+  bottom: 12px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.tech-heading {
+  margin-bottom: 20px;
+  color: var(--mint);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.tech-item {
+  min-height: 78px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(11,29,24,.7);
+  color: #d9f5e7;
+  font-size: .8rem;
+}
+
+.contact {
+  border-top: 1px solid var(--line);
+  background: linear-gradient(180deg, transparent, rgba(16,185,129,.045));
+}
+
+.contact-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+.contact h2 {
+  margin: 12px 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -.06em;
+}
+
+.contact p {
+  max-width: 520px;
+  color: var(--muted);
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.socials a {
+  padding: 10px 15px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: #d9f5e7;
+  font-size: .85rem;
+}
+
+.socials a:hover {
+  border-color: var(--mint);
+  background: rgba(16,185,129,.1);
+}
+
+.quote {
+  max-width: 280px;
+  padding-left: 22px;
+  border-left: 2px solid var(--green);
+  color: #c8e7d9;
+  font-style: italic;
+}
+
+footer {
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+  color: #7fa393;
+  font-size: .78rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: white;
+  font-weight: 800;
+}
+
+.footer-brand .brand-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  font-size: 1rem;
+}
+
+@media (max-width: 700px) {
+  .container { width: calc(100% - 30px); }
+
+  .nav { min-height: 68px; }
+  .nav-links { gap: 12px; font-size: .76rem; }
+
+  .hero { min-height: 430px; padding-block: 65px; }
+  h1 { font-size: clamp(3rem, 14vw, 4.5rem); }
+
+  section { padding-block: 58px; }
+
+  .project-visual { height: 205px; }
+  .project-body { padding: 20px; }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .about-mark {
+    order: -1;
+    min-height: 200px;
+  }
+
+  .big-mark {
+    width: 100px;
+    height: 100px;
+    border-radius: 29px;
+    font-size: 3.3rem;
+  }
+
+  .mark-caption { bottom: 0; }
+
+  .tech-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .contact-layout {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .quote { margin-top: 15px; }
+  .footer-inner { align-items: flex-start; flex-direction: column; }
+}
+
+@media (max-width: 420px) {
+  .brand { font-size: .9rem; }
+  .nav-links { gap: 9px; font-size: .7rem; }
+  .nav-links a { white-space: nowrap; }
+  .hero-meta { flex-direction: column; gap: 8px; }
+}
+</style></head><body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#inicio">
+      <span class="brand-icon">N</span>
+      <span>NEA <small>Software</small></span>
+    </a><nav class="nav-links" aria-label="Navegación principal">
+  <a href="#inicio">Inicio</a>
+  <a href="#proyectos">Proyectos</a>
+  <a href="#sobre-mi">Sobre mí</a>
+  <a href="#contacto">Contacto</a>
+</nav>
+
+  </div>
+</header><main>
+  <section class="container hero" id="inicio">
+    <div class="hero-content">
+      <div class="eyebrow">Ideas · Código · Soluciones</div>  <h1>NEA <span class="gradient-text">Software</span></h1>
+
+  <p class="hero-copy">
+    Proyectos digitales creados con creatividad, tecnología y una mirada
+    puesta en el futuro del Nordeste argentino.
+  </p>
+
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="#proyectos">
+      Explorar proyecto →
+    </a>
+    <a class="btn btn-secondary" href="#sobre-mi">
+      Sobre NEA
+    </a>
+  </div>
+
+  <div class="hero-meta">
+    <span><i class="status-dot"></i> Ideas en construcción</span>
+    <span>Argentina · Desarrollo independiente</span>
+  </div>
+</div>
+
+  </section>  <section id="proyectos">
     <div class="container">
-      <p>© <span id="year"></span> NEA Software. Todos los derechos reservados.</p>
-    </div>
-  </footer>
+      <div class="section-heading">
+        <div class="eyebrow">Proyecto destacado</div>
+        <h2>Ideas que se convierten en soluciones.</h2>
+        <p>
+          Desarrollo herramientas digitales para resolver problemas reales.
+          Este es uno de los proyectos en los que estoy trabajando.
+        </p>
+      </div>  <div class="project-grid">
+    <article class="project-card">
+      <div class="project-visual">
+        <div class="stock-icon" aria-hidden="true">S</div>
+      </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
+      <div class="project-body">
+        <div class="project-title-row">
+          <h3>Stockeá</h3>
+          <span class="pill">En desarrollo</span>
+        </div>
+
+        <p>
+          Una aplicación web para gestionar stock, registrar ventas y
+          controlar ingresos, egresos y estadísticas de un negocio.
+          Diseñada para ayudar a pequeños emprendimientos a organizarse.
+        </p>
+
+        <div class="tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>Firebase</span>
+        </div>
+
+        <div class="project-footer">
+          <a href="https://neasoftware.github.io/stockea/"
+             target="_blank"
+             rel="noopener noreferrer">
+            Visitar Stockeá ↗
+          </a>
+          <span class="pill">NEA Software</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+
+  </section>  <section id="sobre-mi">
+    <div class="container about-layout">
+      <div class="about-copy">
+        <div class="eyebrow">Sobre NEA</div>
+        <h2>Un espacio para desarrollar ideas.</h2>    <p>
+      NEA Software es mi espacio personal para crear proyectos digitales,
+      aprender nuevas tecnologías y transformar ideas en herramientas
+      que puedan ser útiles para otras personas.
+    </p>
+
+    <p>
+      Cada proyecto es una oportunidad para experimentar, mejorar y
+      seguir creciendo en el mundo del desarrollo de software.
+    </p>
+
+    <a class="btn btn-primary" href="#contacto">Conectemos →</a>
+  </div>
+
+  <div class="about-mark">
+    <div class="big-mark" aria-hidden="true">N</div>
+    <div class="mark-caption">NEA <span class="gradient-text">Software</span></div>
+  </div>
+</div>
+
+  </section>  <section>
+    <div class="container">
+      <div class="tech-heading">Tecnologías y herramientas</div>  <div class="tech-grid">
+    <div class="tech-item">HTML</div>
+    <div class="tech-item">CSS</div>
+    <div class="tech-item">JavaScript</div>
+    <div class="tech-item">Firebase</div>
+    <div class="tech-item">GitHub</div>
+  </div>
+</div>
+
+  </section>  <section class="contact" id="contacto">
+    <div class="container contact-layout">
+      <div>
+        <div class="eyebrow">Contacto</div>
+        <h2>¿Hablamos de una idea?</h2>    <p>
+      Explorá mis proyectos, seguí su evolución o conectá conmigo
+      para compartir una propuesta.
+    </p>
+
+    <div class="socials">
+      <!-- Reemplazá este enlace por tu perfil de GitHub -->
+      <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+        GitHub ↗
+      </a>
+      <a href="#proyectos">Mis proyectos</a>
+    </div>
+  </div>
+
+  <blockquote class="quote">
+    “Las mejores ideas también se programan.”
+    <br><br>
+    <small>NEA Software · Ideas en movimiento</small>
+  </blockquote>
+</div>
+
+  </section>
+</main><footer>
+  <div class="container footer-inner">
+    <a class="footer-brand" href="#inicio">
+      <span class="brand-icon">N</span>
+      NEA Software
+    </a><span>© <span id="year"></span> NEA Software. Todos los derechos reservados.</span>
+<span>Hecho con ♥ y muchas ideas.</span>
+
+  </div>
+</footer><script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script></body>
 </html>
