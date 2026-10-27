@@ -1,614 +1,1102 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#06110f">
-<meta name="description" content="NEA Software — Proyectos digitales y tecnología.">
-<title>NEA Software — Proyectos digitales</title><style>
-:root {
-  --bg: #06110f;
-  --panel: #0b1d18;
-  --text: #f1fff8;
-  --muted: #a6c7b9;
-  --line: rgba(110,231,183,.18);
-  --green: #10b981;
-  --mint: #6ee7b7;
-  --aqua: #5eead4;
-}
-
-* { box-sizing: border-box; }
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 90px;
-}
-
-body {
-  margin: 0;
-  color: var(--text);
-  background:
-    radial-gradient(ellipse at 80% 0%, rgba(16,185,129,.15), transparent 35rem),
-    radial-gradient(ellipse at 10% 40%, rgba(45,212,191,.08), transparent 30rem),
-    var(--bg);
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
-  line-height: 1.6;
-}
-
-a { color: inherit; text-decoration: none; }
-
-.container {
-  width: min(1120px, calc(100% - 40px));
-  margin-inline: auto;
-}
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(6,17,15,.88);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid var(--line);
-}
-
-.nav {
-  min-height: 76px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  font-size: 1.1rem;
-  font-weight: 800;
-  letter-spacing: -.04em;
-}
-
-.brand small {
-  color: #b6d0c4;
-  font-weight: 500;
-  letter-spacing: 0;
-}
-
-.brand-icon {
-  width: 39px;
-  height: 39px;
-  display: grid;
-  place-items: center;
-  border-radius: 13px;
-  background: linear-gradient(140deg, #6ee7b7, #059669, #5eead4);
-  color: #03251b;
-  font-weight: 900;
-  font-size: 1.4rem;
-  box-shadow: 0 5px 25px rgba(16,185,129,.22);
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  color: #b6cfc4;
-  font-size: .9rem;
-}
-
-.nav-links a:not(.nav-projects):hover {
-  color: white;
-}
-
-.nav-links .nav-projects {
-  padding: 9px 17px;
-  border-radius: 999px;
-  color: #03251b;
-  font-weight: 800;
-  background: linear-gradient(100deg, #6ee7b7, #34d399, #5eead4);
-  box-shadow: 0 5px 22px rgba(16,185,129,.18);
-  transition: transform .2s, box-shadow .2s;
-}
-
-.nav-links .nav-projects:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(16,185,129,.3);
-}
-
-.hero {
-  min-height: 370px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-block: 65px;
-  border-bottom: 1px solid var(--line);
-}
-
-.hero-content {
-  max-width: 790px;
-}
-
-.hero-copy {
-  margin: 0 auto;
-  color: var(--muted);
-  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
-  line-height: 1.9;
-}
-
-section { padding-block: 60px; }
-
-#proyectos {
-  padding-top: 35px;
-  padding-bottom: 65px;
-  scroll-margin-top: 90px;
-}
-
-.section-heading {
-  margin-bottom: 24px;
-}
-
-.section-heading h2 {
-  margin: 0;
-  font-size: clamp(2rem, 4vw, 2.7rem);
-  line-height: 1.12;
-  letter-spacing: -.055em;
-}
-
-.gradient-text {
-  color: transparent;
-  background: linear-gradient(100deg, #6ee7b7, #34d399, #5eead4);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
-}
-
-.project-card {
-  overflow: hidden;
-  border: 1px solid rgba(110,231,183,.22);
-  border-radius: 22px;
-  background: linear-gradient(150deg, #0d241b, #07130f);
-  transition: transform .25s, border-color .25s, box-shadow .25s;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(94,234,212,.65);
-  box-shadow: 0 20px 55px rgba(0,0,0,.24);
-}
-
-.project-visual {
-  height: 220px;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  position: relative;
-  background:
-    radial-gradient(ellipse at center, rgba(16,185,129,.24), transparent 65%),
-    linear-gradient(140deg, #102b22, #07130f);
-  border-bottom: 1px solid var(--line);
-}
-
-.project-visual::before,
-.project-visual::after {
-  content: "";
-  position: absolute;
-  width: 210px;
-  height: 210px;
-  border: 1px solid rgba(110,231,183,.13);
-  border-radius: 50%;
-}
-
-.project-visual::after {
-  width: 150px;
-  height: 150px;
-}
-
-.stock-icon {
-  z-index: 1;
-  width: 100px;
-  height: 100px;
-  display: grid;
-  place-items: center;
-  border-radius: 30px;
-  color: #04251b;
-  font-size: 3.7rem;
-  font-weight: 900;
-  background: linear-gradient(140deg, #6ee7b7, #059669, #5eead4);
-  box-shadow: 0 0 65px rgba(16,185,129,.2);
-}
-
-.next-icon {
-  z-index: 1;
-  width: 100px;
-  height: 100px;
-  display: grid;
-  place-items: center;
-  border-radius: 30px;
-  border: 1px solid rgba(110,231,183,.3);
-  color: var(--mint);
-  font-size: 3.5rem;
-  background: rgba(16,185,129,.07);
-}
-
-.project-body { padding: 23px; }
-
-.project-title-row {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.project-title-row h3 {
-  margin: 0;
-  font-size: 1.35rem;
-}
-
-.pill {
-  padding: 4px 10px;
-  border-radius: 99px;
-  background: rgba(16,185,129,.13);
-  color: #a7f3d0;
-  font-size: .7rem;
-  font-weight: 800;
-}
-
-.project-body p {
-  color: var(--muted);
-  margin: 14px 0 18px;
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 22px;
-}
-
-.tags span {
-  padding: 6px 10px;
-  border-radius: 8px;
-  background: #102a21;
-  color: #b7d9ca;
-  font-size: .75rem;
-}
-
-.project-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  padding-top: 17px;
-  border-top: 1px solid var(--line);
-}
-
-.project-footer a {
-  color: var(--mint);
-  font-weight: 700;
-  font-size: .9rem;
-}
-
-.project-footer a:hover { color: white; }
-
-.coming-soon {
-  color: #91b3a3;
-  font-size: .85rem;
-  font-weight: 600;
-}
-
-.tech-heading {
-  margin-bottom: 20px;
-  color: var(--mint);
-  font-size: .75rem;
-  font-weight: 800;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-}
-
-.tech-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 12px;
-}
-
-.tech-item {
-  min-height: 78px;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: rgba(11,29,24,.7);
-  color: #d9f5e7;
-  font-size: .8rem;
-}
-
-.contact {
-  border-top: 1px solid var(--line);
-  background: linear-gradient(180deg, transparent, rgba(16,185,129,.045));
-}
-
-.contact-layout {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 35px;
-}
-
-.contact h2 {
-  margin: 12px 0;
-  font-size: clamp(2rem, 4vw, 3rem);
-  letter-spacing: -.06em;
-}
-
-.contact p {
-  max-width: 520px;
-  color: var(--muted);
-}
-
-.socials {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.socials a {
-  padding: 10px 15px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  color: #d9f5e7;
-  font-size: .85rem;
-}
-
-.socials a:hover {
-  border-color: var(--mint);
-  background: rgba(16,185,129,.1);
-}
-
-.quote {
-  max-width: 280px;
-  padding-left: 22px;
-  border-left: 2px solid var(--green);
-  color: #c8e7d9;
-  font-style: italic;
-}
-
-footer {
-  padding: 22px 0;
-  border-top: 1px solid var(--line);
-  color: #7fa393;
-  font-size: .78rem;
-}
-
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  color: white;
-  font-weight: 800;
-}
-
-.footer-brand .brand-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 9px;
-  font-size: 1rem;
-}
-
-@media (max-width: 700px) {
-  .container { width: calc(100% - 30px); }
-
-  .nav { min-height: 68px; }
-  .nav-links { gap: 10px; font-size: .76rem; }
-
-  .nav-links .nav-projects {
-    padding: 8px 11px;
-  }
-
-  .hero {
-    min-height: 330px;
-    padding-block: 45px;
-  }
-
-  section { padding-block: 48px; }
-
-  #proyectos {
-    padding-top: 28px;
-    padding-bottom: 50px;
-  }
-
-  .project-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .project-visual { height: 205px; }
-  .project-body { padding: 20px; }
-
-  .tech-grid { grid-template-columns: repeat(3, 1fr); }
-
-  .contact-layout {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .quote { margin-top: 15px; }
-
-  .footer-inner {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 420px) {
-  .brand { font-size: .9rem; }
-  .nav-links { gap: 7px; font-size: .7rem; }
-  .nav-links a { white-space: nowrap; }
-  .nav-links .nav-projects { padding: 7px 9px; }
-}
-</style></head><body>
-<header>
-  <div class="container nav">
-    <a class="brand" href="#inicio">
-      <span class="brand-icon">N</span>
-      <span>NEA <small>Software</small></span>
-    </a><nav class="nav-links" aria-label="Navegación principal">
-  <a href="#inicio">Inicio</a>
-  <a class="nav-projects" href="#proyectos">Mis proyectos</a>
-  <a href="#contacto">Contacto</a>
-</nav>
-
-  </div>
-</header><main>
-  <section class="container hero" id="inicio">
-    <div class="hero-content">
-      <p class="hero-copy">
-        NEA Software es mi espacio personal para crear proyectos digitales,
-        aprender nuevas tecnologías y transformar ideas en herramientas
-        que puedan ser útiles para otras personas.
-        <br><br>
-        Cada proyecto es una oportunidad para experimentar, mejorar y
-        seguir creciendo en el mundo del desarrollo de software.
-      </p>
-    </div>
-  </section>  <section id="proyectos">
-    <div class="container">
-      <div class="section-heading">
-        <h2>Mis proyectos</h2>
-      </div>  <div class="project-grid">
-
-    <article class="project-card">
-      <div class="project-visual">
-        <div class="stock-icon" aria-hidden="true">S</div>
-      </div>
-
-      <div class="project-body">
-        <div class="project-title-row">
-          <h3>Stockeá</h3>
-          <span class="pill">En desarrollo</span>
-        </div>
-
-        <p>
-          Una aplicación web para gestionar stock, registrar ventas y
-          controlar ingresos, egresos y estadísticas de un negocio.
-          Diseñada para ayudar a pequeños emprendimientos a organizarse.
-        </p>
-
-        <div class="tags">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-          <span>Firebase</span>
-        </div>
-
-        <div class="project-footer">
-          <a href="https://neasoftware.github.io/Stockea/"
-             target="_blank"
-             rel="noopener noreferrer">
-            Visitar Stockeá ↗
-          </a>
-          <span class="pill">NEA Software</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="project-card">
-      <div class="project-visual">
-        <div class="next-icon" aria-hidden="true">+</div>
-      </div>
-
-      <div class="project-body">
-        <div class="project-title-row">
-          <h3>Próximo proyecto</h3>
-          <span class="pill">Próximamente</span>
-        </div>
-
-        <p>
-          Un nuevo proyecto digital de NEA Software.
-          Próximamente habrá más novedades.
-        </p>
-
-        <div class="tags">
-          <span>Nuevo proyecto</span>
-          <span>En planificación</span>
-        </div>
-
-        <div class="project-footer">
-          <span class="coming-soon">En preparación</span>
-          <span class="pill">NEA Software</span>
-        </div>
-      </div>
-    </article>
-
-  </div>
-</div>
-
-  </section>  <section>
-    <div class="container">
-      <div class="tech-heading">Tecnologías y herramientas</div>  <div class="tech-grid">
-    <div class="tech-item">HTML</div>
-    <div class="tech-item">CSS</div>
-    <div class="tech-item">JavaScript</div>
-    <div class="tech-item">Firebase</div>
-    <div class="tech-item">GitHub</div>
-  </div>
-</div>
-
-  </section>  <section class="contact" id="contacto">
-    <div class="container contact-layout">
-      <div>
-        <div class="eyebrow">Contacto</div>
-        <h2>¿Hablamos de una idea?</h2>    <p>
-      Explorá mis proyectos, seguí su evolución o conectá conmigo
-      para compartir una propuesta.
-    </p>
-
-    <div class="socials">
-      <a href="https://github.com/"
-         target="_blank"
-         rel="noopener noreferrer">
-        GitHub ↗
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071914">
+
+  <title>NEA Software | Proyectos digitales</title>
+  <meta name="description" content="NEA Software: proyectos digitales, herramientas y desarrollo de software.">
+
+  <style>
+    :root {
+      --bg: #071914;
+      --panel: #0b241b;
+      --panel-light: #102d22;
+      --green: #10b981;
+      --mint: #6ee7b7;
+      --text: #f1fff8;
+      --muted: #a6c7b9;
+      --line: rgba(110, 231, 183, 0.16);
+      --radius: 22px;
+      --transition: 350ms ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      background: var(--bg);
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 50% -20%, rgba(16,185,129,.12), transparent 55%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    button, a {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      color: inherit;
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--mint);
+      outline-offset: 4px;
+    }
+
+    ::selection {
+      background: var(--green);
+      color: #04130d;
+    }
+
+    /* ENCABEZADO */
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 25, 20, .88);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      width: min(1100px, 100% - 36px);
+      min-height: 76px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -.5px;
+      white-space: nowrap;
+    }
+
+    .brand-icon {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 13px;
+      background: var(--green);
+      color: #04130d;
+      font-size: 1.2rem;
+      font-weight: 900;
+      box-shadow: 0 0 25px rgba(16,185,129,.13);
+    }
+
+    .brand span:last-child {
+      color: var(--mint);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .nav-button {
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--muted);
+      border-radius: 12px;
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .nav-button:hover {
+      color: var(--text);
+      background: rgba(110,231,183,.07);
+    }
+
+    .nav-button.active {
+      background: var(--green);
+      color: #04130d;
+      font-weight: 750;
+    }
+
+    /* PANTALLAS */
+
+    .app {
+      width: min(1100px, 100% - 36px);
+      margin: 0 auto;
+      min-height: calc(100vh - 155px);
+      padding: 52px 0 60px;
+    }
+
+    .screen {
+      display: none;
+      animation: enter .38s ease both;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    @keyframes enter {
+      from {
+        opacity: 0;
+        transform: translateX(var(--enter-direction, 18px));
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--mint);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .74rem;
+      font-weight: 800;
+      margin-bottom: 17px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 23px;
+      height: 2px;
+      border-radius: 3px;
+      background: var(--green);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+      margin-bottom: 12px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 650px;
+      font-size: 1rem;
+    }
+
+    /* INICIO */
+
+    .intro {
+      padding: 15px 0 42px;
+      max-width: 850px;
+    }
+
+    .intro h1 {
+      font-size: clamp(2.1rem, 5.5vw, 3.7rem);
+      letter-spacing: -2px;
+      line-height: 1.1;
+      margin-bottom: 26px;
+    }
+
+    .intro h1 span {
+      color: var(--mint);
+    }
+
+    .intro-copy {
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.12rem);
+      line-height: 1.9;
+      max-width: 790px;
+    }
+
+    .block {
+      margin-top: 38px;
+    }
+
+    .block-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .block-heading h2 {
+      font-size: 1.35rem;
+      letter-spacing: -.5px;
+    }
+
+    .small-label {
+      color: var(--mint);
+      font-size: .76rem;
+      font-weight: 750;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* PROYECTO DESTACADO */
+
+    .featured {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(23px, 5vw, 42px);
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(16,185,129,.15), transparent 52%),
+        linear-gradient(135deg, #0d2c20, #0a2018);
+      border: 1px solid rgba(110,231,183,.22);
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+
+    .featured:hover {
+      border-color: rgba(110,231,183,.45);
+      transform: translateY(-3px);
+    }
+
+    .featured-top {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 23px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 12px rgba(16,185,129,.65);
+    }
+
+    .featured-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .featured-info {
+      max-width: 630px;
+    }
+
+    .featured-info h3 {
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .featured-info p {
+      color: var(--muted);
+      margin-bottom: 24px;
+      max-width: 570px;
+    }
+
+    .featured-mark {
+      width: 120px;
+      height: 120px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 29px;
+      background: linear-gradient(145deg, var(--green), #087f5b);
+      color: #04130d;
+      font-size: 3rem;
+      font-weight: 900;
+      box-shadow: 0 15px 50px rgba(16,185,129,.13);
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 750;
+      font-size: .92rem;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .button-primary {
+      background: var(--green);
+      color: #04130d;
+      border-color: var(--green);
+    }
+
+    .button-primary:hover {
+      background: var(--mint);
+      border-color: var(--mint);
+      transform: translateY(-2px);
+    }
+
+    .button-secondary:hover {
+      border-color: var(--mint);
+      color: var(--mint);
+    }
+
+    /* HERRAMIENTAS */
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 13px;
+    }
+
+    .tool {
+      padding: 20px 17px;
+      min-height: 105px;
+      border-radius: 16px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      transition: var(--transition);
+    }
+
+    .tool:hover {
+      transform: translateY(-3px);
+      border-color: rgba(110,231,183,.4);
+      background: var(--panel-light);
+    }
+
+    .tool-symbol {
+      color: var(--mint);
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 7px;
+    }
+
+    .tool h3 {
+      font-size: .95rem;
+      margin-bottom: 3px;
+    }
+
+    .tool p {
+      color: var(--muted);
+      font-size: .79rem;
+    }
+
+    /* PROYECTOS */
+
+    .projects-header {
+      margin-bottom: 30px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 270px;
+      padding: 26px;
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(16,185,129,.08), transparent 55%),
+        var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(110,231,183,.4);
+    }
+
+    .project-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      background: rgba(16,185,129,.13);
+      border: 1px solid rgba(110,231,183,.16);
+      color: var(--mint);
+      border-radius: 14px;
+      font-weight: 900;
+      font-size: 1.25rem;
+      margin-bottom: 23px;
+    }
+
+    .project-card h2 {
+      font-size: 1.35rem;
+      margin-bottom: 9px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: .95rem;
+      margin-bottom: 24px;
+    }
+
+    .project-card .button {
+      align-self: flex-start;
+      margin-top: auto;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 23px;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      background: rgba(110,231,183,.04);
+      color: var(--mint);
+      padding: 5px 9px;
+      border-radius: 8px;
+      font-size: .75rem;
+    }
+
+    .coming-card {
+      border-style: dashed;
+      background: rgba(11,36,27,.42);
+    }
+
+    .coming-card .project-icon {
+      background: transparent;
+      border-style: dashed;
+    }
+
+    /* CONTACTO */
+
+    .contact-panel {
+      margin-top: 30px;
+      padding: clamp(25px, 5vw, 42px);
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(16,185,129,.11), transparent 55%),
+        var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .contact-panel h2 {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      margin-bottom: 12px;
+    }
+
+    .contact-panel p {
+      color: var(--muted);
+      max-width: 610px;
+    }
+
+    .contact-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 25px;
+      padding: 12px 15px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--mint);
+      font-size: .9rem;
+    }
+
+    /* NAVEGACIÓN INFERIOR */
+
+    .screen-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 55px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .screen-count {
+      color: var(--muted);
+      font-size: .83rem;
+      text-align: center;
+    }
+
+    .screen-count strong {
+      color: var(--mint);
+    }
+
+    .control-button:disabled {
+      opacity: .25;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* PIE */
+
+    .footer {
+      width: min(1100px, 100% - 36px);
+      margin: auto;
+      padding: 23px 0 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .83rem;
+    }
+
+    .footer strong {
+      color: var(--mint);
+    }
+
+    /* MÓVILES */
+
+    @media (max-width: 700px) {
+      .header-inner {
+        width: calc(100% - 24px);
+        min-height: 68px;
+        gap: 10px;
+      }
+
+      .brand {
+        gap: 8px;
+        font-size: .92rem;
+      }
+
+      .brand-icon {
+        width: 35px;
+        height: 35px;
+        border-radius: 11px;
+      }
+
+      .nav {
+        gap: 3px;
+      }
+
+      .nav-button {
+        padding: 9px 10px;
+        font-size: .78rem;
+        border-radius: 10px;
+      }
+
+      .app {
+        width: calc(100% - 28px);
+        padding-top: 34px;
+      }
+
+      .intro {
+        padding-top: 7px;
+        padding-bottom: 15px;
+      }
+
+      .intro h1 {
+        letter-spacing: -1.4px;
+      }
+
+      .intro-copy {
+        line-height: 1.8;
+      }
+
+      .featured-content {
+        align-items: flex-start;
+      }
+
+      .featured-mark {
+        width: 65px;
+        height: 65px;
+        border-radius: 19px;
+        font-size: 1.8rem;
+      }
+
+      .tools-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .tool {
+        padding: 16px 13px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .project-card {
+        min-height: 250px;
+        padding: 23px;
+      }
+
+      .screen-controls {
+        margin-top: 38px;
+      }
+
+      .footer {
+        width: calc(100% - 28px);
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .brand {
+        font-size: .82rem;
+      }
+
+      .brand-icon {
+        width: 31px;
+        height: 31px;
+      }
+
+      .nav-button {
+        padding: 8px 7px;
+        font-size: .72rem;
+      }
+
+      .featured-content {
+        flex-direction: column-reverse;
+      }
+
+      .featured-mark {
+        width: 58px;
+        height: 58px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+
+      <a href="#inicio" class="brand" data-screen="0" aria-label="NEA Software, inicio">
+        <span class="brand-icon">N</span>
+        <span>NEA <span>Software</span></span>
       </a>
 
-      <a href="#proyectos">Mis proyectos</a>
+      <nav class="nav" aria-label="Navegación principal">
+        <button class="nav-button active" data-screen="0" aria-current="page">
+          Inicio
+        </button>
+
+        <button class="nav-button" data-screen="1">
+          Proyectos
+        </button>
+
+        <button class="nav-button" data-screen="2">
+          Contacto
+        </button>
+      </nav>
+
     </div>
-  </div>
+  </header>
 
-  <blockquote class="quote">
-    “Las mejores ideas también se programan.”
-    <br><br>
-    <small>NEA Software · Ideas en movimiento</small>
-  </blockquote>
-</div>
+  <main class="app" id="app">
 
-  </section>
-</main><footer>
-  <div class="container footer-inner">
-    <a class="footer-brand" href="#inicio">
-      <span class="brand-icon">N</span>
-      NEA Software
-    </a><span>
-  © <span id="year"></span> NEA Software. Todos los derechos reservados.
-</span>
+    <!-- PANTALLA 1: INICIO -->
 
-<span>Hecho con ♥ y muchas ideas.</span>
+    <section class="screen active" id="inicio" aria-label="Inicio">
 
-  </div>
-</footer><script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script></body>
+      <div class="intro">
+        <div class="eyebrow">Mi espacio digital</div>
+
+        <h1>
+          Bienvenido a <span>NEA Software.</span>
+        </h1>
+
+        <p class="intro-copy">
+          NEA Software es mi espacio personal para crear proyectos digitales,
+          aprender nuevas tecnologías y transformar ideas en herramientas que
+          puedan ser útiles para otras personas.
+          <br><br>
+          Cada proyecto es una oportunidad para experimentar, mejorar y seguir
+          creciendo en el mundo del desarrollo de software.
+        </p>
+      </div>
+
+      <section class="block" aria-labelledby="featured-title">
+
+        <div class="block-heading">
+          <h2 id="featured-title">Proyecto destacado</h2>
+          <span class="small-label">01 / Proyecto</span>
+        </div>
+
+        <article class="featured">
+
+          <div class="featured-top">
+            <span class="status-dot"></span>
+            <span class="small-label">Proyecto personal</span>
+          </div>
+
+          <div class="featured-content">
+
+            <div class="featured-info">
+              <h3>Stockeá</h3>
+
+              <p>
+                Una aplicación para organizar negocios, administrar el stock,
+                registrar ventas y consultar estadísticas desde un mismo lugar.
+              </p>
+
+              <a
+                class="button button-primary"
+                href="https://neasoftware.github.io/Stockea/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visitar Stockeá <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+
+            <div class="featured-mark" aria-hidden="true">S.</div>
+
+          </div>
+        </article>
+
+      </section>
+
+      <section class="block" aria-labelledby="tools-title">
+
+        <div class="block-heading">
+          <h2 id="tools-title">Herramientas y tecnologías</h2>
+          <span class="small-label">Mi entorno</span>
+        </div>
+
+        <div class="tools-grid">
+
+          <article class="tool">
+            <div class="tool-symbol">&lt;/&gt;</div>
+            <h3>HTML</h3>
+            <p>Estructura web</p>
+          </article>
+
+          <article class="tool">
+            <div class="tool-symbol">#</div>
+            <h3>CSS</h3>
+            <p>Diseño e interfaz</p>
+          </article>
+
+          <article class="tool">
+            <div class="tool-symbol">JS</div>
+            <h3>JavaScript</h3>
+            <p>Interactividad</p>
+          </article>
+
+          <article class="tool">
+            <div class="tool-symbol">◆</div>
+            <h3>Firebase</h3>
+            <p>Servicios en la nube</p>
+          </article>
+
+          <article class="tool">
+            <div class="tool-symbol">GH</div>
+            <h3>GitHub</h3>
+            <p>Repositorios y código</p>
+          </article>
+
+          <article class="tool">
+            <div class="tool-symbol">↗</div>
+            <h3>GitHub Pages</h3>
+            <p>Publicación web</p>
+          </article>
+
+        </div>
+
+      </section>
+
+    </section>
+
+    <!-- PANTALLA 2: PROYECTOS -->
+
+    <section class="screen" id="proyectos" aria-label="Mis proyectos">
+
+      <div class="projects-header">
+        <div class="eyebrow">Lo que estoy creando</div>
+
+        <h1 class="section-title">Mis proyectos</h1>
+
+        <p class="section-description">
+          Cada proyecto representa una idea, algo nuevo que aprender y una
+          oportunidad para seguir desarrollando mis habilidades.
+        </p>
+      </div>
+
+      <div class="project-grid">
+
+        <article class="project-card">
+
+          <div class="project-icon" aria-hidden="true">S.</div>
+
+          <h2>Stockeá</h2>
+
+          <p>
+            Gestión de stock, ventas, productos y estadísticas para pequeños
+            negocios. Diseñada para facilitar el control del día a día.
+          </p>
+
+          <div class="project-tags">
+            <span class="tag">Web</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Firebase</span>
+          </div>
+
+          <a
+            class="button button-primary"
+            href="https://neasoftware.github.io/Stockea/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Abrir proyecto ↗
+          </a>
+
+        </article>
+
+        <article class="project-card coming-card">
+
+          <div class="project-icon" aria-hidden="true">+</div>
+
+          <h2>Próximo proyecto</h2>
+
+          <p>
+            Un nuevo proyecto está por llegar. Este espacio queda preparado
+            para sumar otra idea y compartirla.
+          </p>
+
+          <div class="project-tags">
+            <span class="tag">En preparación</span>
+          </div>
+
+          <span class="button button-secondary">
+            Próximamente
+          </span>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- PANTALLA 3: CONTACTO -->
+
+    <section class="screen" id="contacto" aria-label="Contacto">
+
+      <div class="eyebrow">Conectemos</div>
+
+      <h1 class="section-title">Contacto</h1>
+
+      <p class="section-description">
+        Este espacio estará dedicado a compartir mis redes sociales y las
+        distintas formas de conocer más sobre mis proyectos.
+      </p>
+
+      <div class="contact-panel">
+
+        <h2>Próximamente, más formas de conectar.</h2>
+
+        <p>
+          Cuando tenga listas mis redes sociales y otros canales de contacto,
+          los voy a agregar acá para que puedas encontrarlos fácilmente.
+        </p>
+
+        <div class="contact-note">
+          <span aria-hidden="true">✳</span>
+          <span>Mis enlaces se agregarán próximamente.</span>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CONTROLES DE NAVEGACIÓN -->
+
+    <div class="screen-controls" aria-label="Cambiar de pantalla">
+
+      <button class="button button-secondary control-button" id="prevButton">
+        ← Anterior
+      </button>
+
+      <div class="screen-count" aria-live="polite">
+        <strong id="screenNumber">01</strong> / 03
+      </div>
+
+      <button class="button button-secondary control-button" id="nextButton">
+        Siguiente →
+      </button>
+
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> <strong>NEA Software</strong></p>
+    <p>Ideas digitales. Aprendizaje constante.</p>
+  </footer>
+
+  <script>
+    "use strict";
+
+    const screens = Array.from(document.querySelectorAll(".screen"));
+    const navButtons = Array.from(document.querySelectorAll(".nav-button"));
+    const prevButton = document.getElementById("prevButton");
+    const nextButton = document.getElementById("nextButton");
+    const screenNumber = document.getElementById("screenNumber");
+    const app = document.getElementById("app");
+
+    let currentScreen = 0;
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    function showScreen(index, direction = 1) {
+      if (index < 0 || index >= screens.length || index === currentScreen) {
+        return;
+      }
+
+      currentScreen = index;
+
+      screens.forEach((screen, i) => {
+        screen.classList.toggle("active", i === currentScreen);
+        screen.setAttribute("aria-hidden", i !== currentScreen ? "true" : "false");
+        screen.style.setProperty(
+          "--enter-direction",
+          direction >= 0 ? "18px" : "-18px"
+        );
+      });
+
+      navButtons.forEach((button, i) => {
+        const isActive = i === currentScreen;
+
+        button.classList.toggle("active", isActive);
+
+        if (isActive) {
+          button.setAttribute("aria-current", "page");
+        } else {
+          button.removeAttribute("aria-current");
+        }
+      });
+
+      screenNumber.textContent = String(currentScreen + 1).padStart(2, "0");
+
+      prevButton.disabled = currentScreen === 0;
+      nextButton.disabled = currentScreen === screens.length - 1;
+
+      // Mantiene la pantalla nueva al comienzo del contenido.
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    navButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const index = Number(button.dataset.screen);
+        showScreen(index, index > currentScreen ? 1 : -1);
+      });
+    });
+
+    document.querySelectorAll("[data-screen]").forEach((element) => {
+      if (element.tagName === "A") {
+        element.addEventListener("click", (event) => {
+          event.preventDefault();
+          const index = Number(element.dataset.screen);
+          showScreen(index, index > currentScreen ? 1 : -1);
+        });
+      }
+    });
+
+    prevButton.addEventListener("click", () => {
+      showScreen(currentScreen - 1, -1);
+    });
+
+    nextButton.addEventListener("click", () => {
+      showScreen(currentScreen + 1, 1);
+    });
+
+    // Navegación táctil: deslizar a izquierda o derecha.
+    app.addEventListener("touchstart", (event) => {
+      const touch = event.changedTouches[0];
+      touchStartX = touch.screenX;
+      touchStartY = touch.screenY;
+    }, { passive: true });
+
+    app.addEventListener("touchend", (event) => {
+      const touch = event.changedTouches[0];
+      const deltaX = touch.screenX - touchStartX;
+      const deltaY = touch.screenY - touchStartY;
+
+      // Evita cambiar de pantalla al desplazarse verticalmente.
+      if (
+        Math.abs(deltaX) < 75 ||
+        Math.abs(deltaX) < Math.abs(deltaY) * 1.25
+      ) {
+        return;
+      }
+
+      if (deltaX < 0) {
+        showScreen(currentScreen + 1, 1);
+      } else {
+        showScreen(currentScreen - 1, -1);
+      }
+    }, { passive: true });
+
+    // Navegación opcional con las flechas del teclado.
+    document.addEventListener("keydown", (event) => {
+      if (
+        event.altKey ||
+        event.ctrlKey ||
+        event.metaKey ||
+        ["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)
+      ) {
+        return;
+      }
+
+      if (event.key === "ArrowRight") {
+        showScreen(currentScreen + 1, 1);
+      }
+
+      if (event.key === "ArrowLeft") {
+        showScreen(currentScreen - 1, -1);
+      }
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Estado inicial.
+    screens.forEach((screen, i) => {
+      screen.setAttribute("aria-hidden", i !== 0 ? "true" : "false");
+    });
+
+    prevButton.disabled = true;
+    nextButton.disabled = false;
+  </script>
+
+</body>
 </html>
